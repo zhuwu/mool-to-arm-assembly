@@ -1,0 +1,24 @@
+class Main {
+    void main(){
+        return;
+    }
+}
+
+class Test {
+    Int deal_code(){
+        Int t1;
+        Int t2;
+        Int t3;
+
+        t1 = 0;
+        t1 = t1 + 1;
+        t1 = 2;
+        t2 = 2+2;
+        t1 = t2;
+        t3 = t1+3+2;
+        t2 = t1 -2;
+
+        t2 = 3 - 2;
+        return t2;
+    }
+}

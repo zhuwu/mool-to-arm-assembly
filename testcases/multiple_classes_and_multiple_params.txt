@@ -1,0 +1,72 @@
+
+class Main {
+  void main(){
+    RectangleTest test;
+    println("##### Testing Rectangle #####");
+    test = new RectangleTest();
+    test.printStats();
+    println("##### End of Test #####");
+    return;
+  }
+}
+
+class RectangleTest{
+  Rectangle rect;
+
+  void printStats(){
+    Int length;
+    Int width;
+    Int step;
+
+    rect = new Rectangle();
+    length = 10;
+    width = 8;
+    println("length and width difference is:");
+    println(length - width);
+
+    step = 1;
+    while (length < 20){
+      if(length > 15){
+        println("*** Large Rectangle ***");
+      } 
+      else {
+        println("*** Rectangle ***");
+      }
+      println("Rectangle length: ");
+      println(length);
+      println("Rectangle width: ");
+      println(width);
+      println("--------------------");
+      println("Rectangle area is: ");
+      println(rect.computeArea(length, width));
+      println("--------------------");
+      println("Rectange circumference is: ");
+      println(rect.computeCircumference(length, width)); 
+      println("\n");
+
+      length = length + step;
+      width = width + step;
+
+    }
+
+    println("--------------------");
+    println("Sum of Three Rectangle Areas:");
+    println(rect.computeThreeRectanges(8,6, 10,8, 12,10));
+
+  }
+}
+
+class Rectangle{
+  Int computeArea(Int length, Int width){
+    return length * width;
+  }
+
+  Int computeCircumference(Int length, Int width){
+    return 2 * (length + width);
+  }
+
+  Int computeThreeRectanges(Int length1, Int width1, Int length2, Int width2, Int length3, Int width3){
+    return length1 * width1 + length2 * width2 + length3 * width3;
+  }
+
+}

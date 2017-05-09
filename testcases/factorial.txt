@@ -1,0 +1,23 @@
+class Main {
+  void main() {
+    Int i;
+    Int max;
+    Int result;
+    
+    i = 1;
+    max = 7;
+    result = 1;
+
+    while (i <= max) {
+      result = result * i;
+      i = i + 1;
+    }
+
+    println("i = ");
+    println(i);
+    println("max = ");
+    println(max);
+    println("result = ");
+    println(result);
+  }
+}

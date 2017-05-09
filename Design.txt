@@ -1,0 +1,25 @@
+Design
+
+1. Access Mode
+
+Access mode is validated in type checking, i.e., illegal access to private attribute or private method should be rejected during type checking. Therefore, private attributes and private methods can be treated as normal attributes and normal methods during code generation.
+
+2. Class Hierarchy for Attributes
+
+When building the record for a certain MOOL class (named A here) in ir3, the record should contains not only A's attributes, but also all the public attributes from A's ancestor class whose names are not identical to any name of A's attributes. When an object of class A is created, a space for A will be allocated in heap and the size of the heap space is equal to the size of record A. In this way, each attribute accessible by class A has a memory location.
+
+3. Method Overloading
+
+Method overloading should be handled during ir3 generation. During ir3 generation, the method is selected using some best match algorithm according to method parameters' declaration types. Thus, no special handling is required in arm code generation.
+
+4. Method Overriding
+
+1) Build a method table in memory. Every class should have an entry in the method table. Each entry contains names and addresses of all the methods, including all the current class methods and public methods of ancestor classes which are not overridden by any of current class methods.
+
+2) Build an object type table in memory. Upon object creation, besides creating a heap space for the object, an entry is added to the object type table, and the entry should contain heap address and actual type of the object.
+
+3) During method call, as the object is passed as first parameter in arm code, we can know the actual class type of the object from object type table. After that find the entry in method table according to the actual class name. Look up the target method address by method name, and jump there. In this way, dynamic method dispatching can be implemented.
+
+5. Dealing with "super"
+
+Create a new object of the parent class of the current class, and create an entry in object type table with the new object heap address and the parent class type.

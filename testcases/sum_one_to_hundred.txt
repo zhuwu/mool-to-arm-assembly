@@ -1,0 +1,23 @@
+class Main {
+  void main() {
+    Int i;
+    Int max;
+    Int sum;
+    
+    i = 1;
+    max = 100;
+    sum = 0;
+
+    while (i <= max) {
+      sum = sum + i;
+      i = i + 1;
+    }
+
+    println("i = ");
+    println(i);
+    println("max = ");
+    println(max);
+    println("sum = ");
+    println(sum);
+  }
+}

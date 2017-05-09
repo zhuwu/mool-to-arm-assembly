@@ -1,0 +1,9 @@
+class Main {
+  void main() {
+    println("Hello world!");
+    println(true);
+    println(255);
+    println(100+ 234);
+    println(88 >= 99);
+  }
+}
